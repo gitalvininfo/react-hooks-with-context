@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { v4 as uuid } from 'uuid'
+import React, { useState, useEffect } from 'react'
 import NewSongForm from './NewSongForm'
 
 const Songlist = () => {
@@ -9,9 +8,15 @@ const Songlist = () => {
         { title: 'this wild darkness', id: 3 },
     ])
 
+
+
     const addSong = (song) => {
         setSongs([...songs, { id: song.id, title: song.title }])
     }
+
+    useEffect(() => {
+        console.log('use effect ran', songs)
+    }, [songs])
 
 
     return (
